@@ -16,7 +16,7 @@ public class StreamReduce {
   }
 
   int longestWord1(List<String> words) {
-    System.out.println("Using a specialized IntStream");
+    System.out.println("\nUsing a specialized IntStream");
     return words.stream()
         .mapToInt(String::length)
         .max()
@@ -24,7 +24,7 @@ public class StreamReduce {
   }
 
   int longestWord2(List<String> words) {
-    System.out.println("Using an accumulation operator");
+    System.out.println("\nUsing an accumulation operator");
     return words.stream()
         .map(String::length)
         .reduce(0, (acc, curr) -> {
@@ -36,7 +36,7 @@ public class StreamReduce {
   }
 
   int longestWord2AlmostEquivalent(List<String> words) {
-    System.out.println("Using the good ol' loop");
+    System.out.println("\nUsing the good ol' loop");
 
     List<Integer> lengths = new ArrayList<>();
     for (var word : words) {
@@ -52,14 +52,14 @@ public class StreamReduce {
   }
 
   int longestWord3(List<String> words) {
-    System.out.println("Using an accumulation operator with a ternary operator");
+    System.out.println("\nUsing an accumulation operator with a ternary operator");
     return words.stream()
         .map(String::length)
         .reduce(0, (acc, curr) -> acc > curr ? acc : curr);
   }
 
   int longestWord4(List<String> words) {
-    System.out.println("Using an accumulation operator through a method reference");
+    System.out.println("\nUsing an accumulation operator through a method reference");
     return words.stream()
         .map(String::length)
         .reduce(0, Integer::max);
@@ -67,7 +67,7 @@ public class StreamReduce {
 
   //this is called "reduce" in Kotlin, while the other examples are called "fold"
   int longestWord5(List<String> words) {
-    System.out.println("With identity equal to the first element");
+    System.out.println("\nWith identity equal to the first element");
     return words.stream()
         .map(String::length)
         .reduce(Integer::max)
@@ -75,7 +75,7 @@ public class StreamReduce {
   }
 
   int longestWord6(List<String> words) {
-    System.out.println("Using a mapping reducer");
+    System.out.println("\nUsing a mapping reducer");
     return words.stream()
         .reduce(0, (acc, curr) -> acc > curr.length() ? acc : curr.length(), Integer::max);
   }

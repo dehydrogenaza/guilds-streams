@@ -13,34 +13,37 @@ public class StreamMappingReduce {
   }
 
   String combinedString1(List<String> words) {
-    System.out.println("Using an accumulation operator");
+    System.out.println("\nUsing an accumulation operator");
     return words.stream()
         .reduce("", (acc, curr) -> acc + curr);
   }
 
   String combinedString2(List<String> words) {
-    System.out.println("Using an accumulation operator through a method reference");
+    System.out.println("\nUsing an accumulation operator through a method reference");
     return words.stream()
         .reduce("", String::concat);
   }
 
   String combinedString3(List<String> words) {
-    System.out.println("With identity equal to the first element");
+    System.out.println("\nWith identity equal to the first element");
     return words.stream()
         .reduce(String::concat)
         .orElse("");
   }
 
   int combinedLength1(List<String> words) {
-    System.out.println("Reducing, then mapping the result");
+    System.out.println("\nReducing, then mapping the result");
     return words.stream()
         .reduce("", String::concat)
         .length();
   }
 
   int combinedLength2(List<String> words) {
-    System.out.println("Mapping and reducing in a single step");
+    System.out.println("\nMapping and reducing in a single step");
     return words.stream()
         .reduce(0, (acc, word) -> acc + word.length(), Integer::sum);
   }
 }
+
+//stream generate
+//stream iterate
