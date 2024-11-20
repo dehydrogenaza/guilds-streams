@@ -44,6 +44,3 @@ public class StreamMappingReduce {
         .reduce(0, (acc, word) -> acc + word.length(), Integer::sum);
   }
 }
-
-//stream generate
-//stream iterate
